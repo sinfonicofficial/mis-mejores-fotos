@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mis mejores fotos 📸</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#050505;color:#fff;font-family:Arial,sans-serif}
+header{min-height:45vh;display:flex;align-items:end;padding:32px 20px;background:linear-gradient(to top,#050505 5%,#05050599 55%,#111 100%)}
+h1{font-size:clamp(2.5rem,9vw,5.5rem);margin:0;letter-spacing:-3px}header p{color:#ccc;font-size:1.05rem}
+main{max-width:1200px;margin:auto;padding:28px 15px 60px}.title{margin-bottom:18px}.title h2{margin:0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.photo{aspect-ratio:1;overflow:hidden;background:#151515}.photo img{width:100%;height:100%;object-fit:cover;cursor:pointer;transition:.3s}.photo img:hover{transform:scale(1.04)}
+.empty{grid-column:1/-1;border:1px dashed #444;padding:55px 20px;text-align:center;color:#999;border-radius:14px}
+footer{text-align:center;color:#777;padding:20px}.viewer{display:none;position:fixed;inset:0;background:#000e;z-index:5;align-items:center;justify-content:center;padding:20px}.viewer.open{display:flex}.viewer img{max-width:96vw;max-height:90vh}
+.close{position:fixed;right:18px;top:15px;width:44px;height:44px;border:1px solid #555;background:#111;color:#fff;border-radius:50%;font-size:25px}
+@media(max-width:600px){.grid{grid-template-columns:repeat(2,1fr);gap:5px}h1{letter-spacing:-2px}}
+</style>
+</head>
+<body>
+<header><div><h1>Mis mejores fotos 📸</h1><p>Un pequeño rincón donde guardo mis mejores momentos.</p></div></header>
+<main><div class="title"><h2>Galería</h2></div>
+<section class="grid">
+<!-- Agrega tus fotos así:
+<div class="photo"><img src="fotos/mi-foto.jpg" alt="Mi foto"></div>
+-->
+<div class="empty">Aquí aparecerán tus fotos 📷<br><br>Sube tus imágenes a la carpeta <b>fotos</b> y agrega sus líneas en este archivo.</div>
+</section></main>
+<footer>© Mis mejores fotos</footer>
+<div class="viewer" id="viewer"><button class="close" id="close">×</button><img id="big"></div>
+<script>
+document.querySelectorAll('.photo img').forEach(x=>x.onclick=()=>{big.src=x.src;viewer.classList.add('open')});
+close.onclick=()=>viewer.classList.remove('open');viewer.onclick=e=>{if(e.target===viewer)viewer.classList.remove('open')};
+</script>
+</body></html>
